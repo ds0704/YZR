@@ -20,6 +20,7 @@ public class AdminTimetableController {
 	@RequestMapping(value = "/admin/timetable", method = RequestMethod.GET)
 	public ModelAndView adminTimetablePage() throws Exception {
 		ModelAndView view=new ModelAndView();
+		view.addObject("theaterlist", service.getTheatername());
 		view.setViewName("admin/timetable");
 		return view;
 	}
