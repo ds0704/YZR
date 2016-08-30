@@ -59,7 +59,7 @@ public class QnaDAOImpl implements QnaDAO {
 		CriteriaQuery<QnaVO> cq = cb.createQuery(QnaVO.class);
 		Root<QnaVO> root = cq.from(QnaVO.class);
 		Predicate p = cb.equal(root.get("member_id"), member_id);
-		Predicate s = cb.like(root.get("content"), "%"+search+"%");
+		Predicate s = cb.like(root.get("title"), "%"+search+"%");
 		cq.select(root).where(cb.and(p,s));
 		TypedQuery<QnaVO> tq = entityManager.createQuery(cq).setFirstResult(criteria.getStartPage()).setMaxResults(criteria.getArticlePerPage());;
 		List<QnaVO> qnasearchlist = tq.getResultList();

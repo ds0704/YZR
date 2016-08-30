@@ -41,14 +41,14 @@ th{
 			</td>
 		</tr>
 		<tr>
-			<th>내용</th>
-			<td colspan="3">
+			<th style="vertical-align: text-top;">내용</th>
+			<td colspan="3" style="height: 200px; vertical-align: text-top;">
 				${qnavo.content }
 			</td>
 		</tr>
 	</table>
 	<div style="float: right;">
-		<a href="/user/qna"><input type="button" class="btn btn-danger" value="확인"></a>
+		<a href="/user/qna"><input type="button" class="btn btn-danger" value="목록"></a>
 	</div>
 </div>
 <%@include file="../include/footer.jsp"%>

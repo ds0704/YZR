@@ -7,6 +7,7 @@ import net.nigne.yzrproject.domain.DirectorVO;
 import net.nigne.yzrproject.domain.GenreVO;
 import net.nigne.yzrproject.domain.GpaVO;
 import net.nigne.yzrproject.domain.MovieVO;
+import net.nigne.yzrproject.domain.ReservationVO;
 
 public interface MovieDAO {
 	public MovieVO getMovie(String movie_id);
@@ -29,6 +30,8 @@ public interface MovieDAO {
 	
 	public List<MovieVO> getMovieList(String order);	// 예매율순, 가나다순
 	public List<MovieVO> getMovieId(String movieName);	// 무비아이디 가져오기
+	
+
 	
 	
 	

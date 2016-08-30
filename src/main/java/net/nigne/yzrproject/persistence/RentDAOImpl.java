@@ -47,7 +47,7 @@ public class RentDAOImpl implements RentDAO {
 		Root<RentVO> root = cq.from(RentVO.class);
 		Predicate p = cb.equal(root.get("member_id"), member_id);
 		cq.select(root);
-		cq.where(p).orderBy(cb.desc(root.get("no")));
+		cq.where(p).orderBy(cb.asc(root.get("complete")),cb.desc(root.get("no")));
 		TypedQuery<RentVO> tq = entityManager.createQuery(cq).setFirstResult(criteria.getStartPage()).setMaxResults(criteria.getArticlePerPage());
 		List<RentVO> rentpagelist = tq.getResultList();
 		return rentpagelist;

@@ -31,9 +31,9 @@
 				<li class="lo_li" onclick="getTheater_list('경기')">경기</li>
 				<li class="lo_li" onclick="getTheater_list('인천')">인천</li>
 				<li class="lo_li" onclick="getTheater_list('강원')">강원</li>
-				<li class="lo_li" onclick="getTheater_list('대전/충청')">대전/충청</li>
-				<li class="lo_li" onclick="getTheater_list('광주/전라')">광주/전라</li>
-				<li class="lo_li" onclick="getTheater_list('대구/울산/부산')">대구/울산/부산</li>
+				<li class="lo_li" onclick="getTheater_list('대전|충청')">대전/충청</li>
+				<li class="lo_li" onclick="getTheater_list('광주|전라')">광주/전라</li>
+				<li class="lo_li" onclick="getTheater_list('대구|울산|부산')">대구/울산/부산</li>
 				<li class="lo_li" onclick="getTheater_list('경상')">경상</li>
 				<li class="lo_li" onclick="getTheater_list('제주')">제주</li>
 			</ul>
@@ -92,7 +92,7 @@
 		initialize(theater_name, address, xpoint, ypoint);
 	}
 	
-	setTheater_name("CGV강남","서울","0","0");
+	setTheater_name("CGV강남","서울특별시 강남구 강남대로 438 (역삼동, 스타플렉스)","127.0262446","37.5017831");
 	
 	$(".th_name").click(function(){
 		var ti = $(this).attr("value");
@@ -126,9 +126,9 @@
 			content : contentString,
 			maxWidth : markerMaxWidth
 		});
-		
-		google.maps.event.addListener(marker, 'click', function() {
 		infowindow.open(map, marker);
+		google.maps.event.addListener(marker, 'click', function() {
+			infowindow.open(map, marker);
 		});
 	}
 	

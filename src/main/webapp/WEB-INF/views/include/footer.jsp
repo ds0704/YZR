@@ -17,7 +17,7 @@
 			<li><a href="#">사이트맵</a></li>
 		</ul>
 		<div style="height: 60px; padding-left:300px;">
-			<img src="http://img.cgv.co.kr/R2014/images/title/h1_cgv.png" alt="CGV" style="float:left; height: 50px;">
+			<img src="" style="float:left; height: 50px;">
 			<p class="vl">
 				<span>서울특별시 중구 남대문로 120 대일빌딩 2F</span>
 			</p>

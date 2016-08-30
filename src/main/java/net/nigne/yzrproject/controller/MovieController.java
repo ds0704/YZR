@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.UsesSunHttpServer;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +24,7 @@ import net.nigne.yzrproject.domain.DirectorVO;
 import net.nigne.yzrproject.domain.GenreVO;
 import net.nigne.yzrproject.domain.GpaVO;
 import net.nigne.yzrproject.domain.MovieVO;
+import net.nigne.yzrproject.domain.ReservationVO;
 import net.nigne.yzrproject.domain.ReviewVO;
 import net.nigne.yzrproject.service.MovieService;
 import net.nigne.yzrproject.service.ReviewService;
@@ -82,6 +84,7 @@ public class MovieController {
 
 	@RequestMapping(value = "/movie/{movie_id}", method = RequestMethod.GET)
 	public String home(Locale locale, Model model, @PathVariable("movie_id") String movie_id) throws Exception {
+		
 		MovieVO movievo = movie_service.getList(movie_id);
 		model.addAttribute("movievo", movievo);
 		List<ActorVO> actorlist = movie_service.getActor(movie_id);
@@ -92,7 +95,7 @@ public class MovieController {
 		model.addAttribute("genrelist", genrelist);
 		GpaVO gpavo = movie_service.getGpa(movie_id);
 		model.addAttribute("gpavo", gpavo);
-		
+
 		List<ReviewVO> reviewlist = Review_service.getReview(movie_id);
 		model.addAttribute("reviewlist", reviewlist);
 		return "movie_detail";

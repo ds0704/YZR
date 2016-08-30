@@ -11,6 +11,7 @@ import net.nigne.yzrproject.domain.DirectorVO;
 import net.nigne.yzrproject.domain.GenreVO;
 import net.nigne.yzrproject.domain.GpaVO;
 import net.nigne.yzrproject.domain.MovieVO;
+import net.nigne.yzrproject.domain.ReservationVO;
 import net.nigne.yzrproject.persistence.MovieDAO;
 
 @Service

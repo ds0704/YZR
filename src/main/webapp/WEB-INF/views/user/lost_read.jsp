@@ -20,7 +20,7 @@ th{
 	background-color: ivory;
 }
 </style>
-<div class="content" style="margin-left: 120px; width: 890px;">
+<div class="content" style="margin-left: 120px;">
 	<div>
 		<h3>나의 분실물 문의</h3>
 	</div><br/>
@@ -45,15 +45,15 @@ th{
 				${lostvo.lost_type }
 			</td>
 		</tr>
-		<tr>
-			<th>내용</th>
-			<td colspan="3">
+		<tr >
+			<th  style="vertical-align: text-top;;">내용</th>
+			<td colspan="3" style="height:200px; vertical-align: text-top;"  >
 				${lostvo.lost_content }
 			</td>
 		</tr>
 	</table>
 	<div style="float: right;">
-		<a href="/user/lost"><input type="button" class="btn btn-danger" value="확인"></a>
+		<a href="/user/lost"><input type="button" class="btn btn-danger" value="목록"></a>
 	</div>
 </div>
 <%@include file="../include/footer.jsp"%>

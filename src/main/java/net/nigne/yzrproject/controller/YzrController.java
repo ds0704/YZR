@@ -176,63 +176,64 @@ public class YzrController {
             
             
             // movie_id 배열에 추천장르영화 movie_id가 있는지 확인
-            int gn = 0;
-            int an = 0;
-            int dn = 0;
+            String gn = null;
+            String an = null;
+            String dn = null;
             List<String> rec_title = new ArrayList<String>();
             
-            for(int r=0; r<rec_genre.size(); r++){
-               if(list_movieId.contains(rec_genre.get(r).getMovie_id())){
-                  continue;
-               }
-               gn = r;
-            }
+            for(MovieVO vo : rec_genre){
+                if(!list_movieId.contains(vo.getMovie_id())){
+             	   gn = vo.getMovie_id();
+             	   break;
+                }
+             }
             
             String genre = "";
             
-            if(gn == 0){
+            if(gn == null){
             	rec_genre_movie = movie_service.basicMovie().get(0);
             	rec_title.add("No.1");
             }else{
-	            rec_genre_movie = movie_service.getMovie(rec_genre.get(gn).getMovie_id());
+	            rec_genre_movie = movie_service.getMovie(gn);
 	            genre = genre_service.getMovie_genre(rec_genre_movie.getMovie_id());
 	            rec_title.add("장르&nbsp<&nbsp" + genre + "&nbsp>");
             }
             
             // movie_id 배열에 추천배우영화 movie_id가 있는지 확인
-            for(int a=0; a<rec_actor.size(); a++){
-               if(list_movieId.contains(rec_actor.get(a).getMovie_id())){
-                  continue;
+            for(MovieVO vo : rec_actor){
+               if(!list_movieId.contains(vo.getMovie_id())){
+            	   an = vo.getMovie_id();
+            	   break;
                }
-               an = a;
             }
             
             String actor = "";
             
-            if(an == 0){
+            if(an == null){
             	rec_actor_movie = movie_service.basicMovie().get(1);
             	rec_title.add("No.2");
             }else{
-	            rec_actor_movie = movie_service.getMovie(rec_actor.get(an).getMovie_id());
+	            rec_actor_movie = movie_service.getMovie(an);
 	            actor = actor_service.getMovie_actor(member_id);
 	            rec_title.add("배우&nbsp<&nbsp" + actor + "&nbsp>");
             }
             
             // movie_id 배열에 추천감독영화 movie_id가 있는지 확인
-            for(int d=0; d<rec_director.size(); d++){
-               if(list_movieId.contains(rec_director.get(d).getMovie_id())){
-                  continue;
-               }
-               dn = d;
-            }
+            for(MovieVO vo : rec_director){
+            	System.out.println(vo.getMovie_id());
+                if(!list_movieId.contains(vo.getMovie_id())){
+             	   dn = vo.getMovie_id();
+             	   break;
+                }
+             }
             
             String director = "";
             
-            if(dn == 0){
+            if(dn == null){
             	rec_director_movie = movie_service.basicMovie().get(2);
             	rec_title.add("No.3");
             }else{
-	            rec_director_movie = movie_service.getMovie(rec_director.get(dn).getMovie_id());
+	            rec_director_movie = movie_service.getMovie(dn);
 	            director = director_service.getMovie_director(rec_director_movie.getMovie_id());
 	            rec_title.add("감독&nbsp<&nbsp" + director + "&nbsp>");
             }

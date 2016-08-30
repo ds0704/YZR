@@ -88,7 +88,7 @@
 	</div>
 <!-- vipmodal -->
 <div class="modal fade" id="vipModal" role="dialog" >
-	<div class="modal-dialog modal-lg" style="margin-top: 300px;" >
+	<div class="modal-dialog modal-lg" style="margin-top: 200px;" >
 		<div class="modal-content" style="background-color: #222222">
 				<form id="form">
 					<div class="modal-header">
@@ -237,7 +237,7 @@
 </div>
 <!-- specialmodal -->
 <div class="modal fade" id="specialModal" role="dialog" >
-	<div class="modal-dialog modal-lg" style="margin-top: 300px;" >
+	<div class="modal-dialog modal-lg" style="margin-top: 200px;" >
 		<div class="modal-content" style="background-color: #222222">
 				<form id="form">
 					<div class="modal-header">
@@ -382,7 +382,7 @@
 </div>
 <!-- romancemodal -->
 <div class="modal fade" id="romanceModal" role="dialog" >
-	<div class="modal-dialog modal-lg" style="margin-top: 300px;" >
+	<div class="modal-dialog modal-lg" style="margin-top: 200px;" >
 		<div class="modal-content" style="background-color: #222222">
 				<form id="form">
 					<div class="modal-header">
@@ -528,7 +528,7 @@
 </div>
 <!-- actionmodal -->
 <div class="modal fade" id="actionModal" role="dialog" >
-	<div class="modal-dialog modal-lg" style="margin-top: 300px;" >
+	<div class="modal-dialog modal-lg" style="margin-top: 200px;" >
 		<div class="modal-content" style="background-color: #222222">
 				<form id="form">
 					<div class="modal-header">

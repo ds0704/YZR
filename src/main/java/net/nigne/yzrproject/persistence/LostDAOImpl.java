@@ -48,7 +48,7 @@ public class LostDAOImpl implements LostDAO {
 		Root<LostVO> root = cq.from(LostVO.class);
 		Predicate p = cb.equal(root.get("member_id"), member_id);
 		cq.select(root);
-		cq.where(p).orderBy(cb.desc(root.get("no")));
+		cq.where(p).orderBy(cb.asc(root.get("complete")),cb.desc(root.get("no")));
 		TypedQuery<LostVO> tq = entityManager.createQuery(cq).setFirstResult(criteria.getStartPage()).setMaxResults(criteria.getArticlePerPage());
 		List<LostVO> lostpagelist = tq.getResultList();
 		return lostpagelist;

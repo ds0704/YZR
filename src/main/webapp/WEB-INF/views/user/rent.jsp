@@ -59,10 +59,10 @@
 					<div style="display: inline-block; height: 50px;float: left; margin-top:15px; margin-left: 10px;">
 						<font size="4px;">
 							<b>고객의 말씀 </b>
-							<button class="btn btn-danger btn-xs" style="margin-bottom: 5px;">바로가기</button><br/>
+							<button class="btn btn-danger btn-xs" style="margin-bottom: 5px; onclick="qna()">바로가기</button><br/>
 						</font>
 						<font size="3px;">
-							대관관련 문의사항을 남겨주시면 <br/>친절히답변드리겠습니다. 
+							불만사항이나 문의사항을 남겨주시면 <br/>친절히답변드리겠습니다. 
 						</font> 
 					</div>
 				</td>
@@ -82,8 +82,8 @@ function faq(){
 function rent_read(no){
 	location.href = "/user/rent/read/" + no;
 }
-function rent(){
-	location.href = "/support/rent";
+function qna(){
+	location.href = "/support/qna";
 }
 
 getRentList(1);
@@ -98,9 +98,13 @@ function setRentList(data){
 			+"<td  style='text-align: center;'>"
 			+place[2]
 			+"</td>"
-			+"<td>"
-			+this.rent_content
-			+"</td>"
+			+"<td>";
+			if(this.rent_content.length<20){
+				result+="<a href='javascript:rent_read("+this.no+")'style='text-decoration:none;'>"+this.rent_content+"</a>"
+			}else{
+				result+="<a href='javascript:rent_read("+this.no+")'style='text-decoration:none;'>"+this.rent_content.substring(1,20)+"........</a>"
+			}
+			result+="</td>"
 			+"<td  style='text-align: center;'>"
 			+this.rent_date
 			+"</td>"

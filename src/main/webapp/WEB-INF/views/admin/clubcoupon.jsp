@@ -37,7 +37,7 @@
 				</td>
 			</tr>
 		</table><br><br>
-		<div style="margin-left: 300px;">
+		<div style="text-align: center;">
 			<input type="button" id="post" class="btn btn-danger" value="발송" onclick="couponPost();">
 		</div>
 	</form>

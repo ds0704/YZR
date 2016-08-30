@@ -106,6 +106,7 @@ public class AdminNoticeController {
 
 		vo.setNotice_date(notice_date);
 		vo.setNotice_image(fileName);
+		vo.setNotice_view_cnt(0);
 		service.persist(vo);
 		
 		ModelAndView view=new ModelAndView();

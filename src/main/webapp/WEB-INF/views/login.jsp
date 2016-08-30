@@ -118,11 +118,11 @@ a:hover {
 	function loginCheck() {
 		if ($("#member_id").val() == null || $("#member_id").val() == "") {
 			$("#msg").html("아이디를 입력하세요.");
-			$('#myModal').modal('show')
+			$('#myModal').modal('show');
 			$("#member_id").focus();
 		} else if ($("#member_pw").val() == null || $("#member_pw").val() == "") {
 			$("#msg").html("비밀번호를 입력하세요.");
-			$('#myModal').modal('show')
+			$('#myModal').modal('show');
 			$("#member_pw").focus();
 		} else {
 			$("#loginfrm").submit();

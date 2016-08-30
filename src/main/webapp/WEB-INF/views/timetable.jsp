@@ -31,9 +31,9 @@
             <li class="lo_li" onclick="getTheater_list('경기')">경기</li>
             <li class="lo_li" onclick="getTheater_list('인천')">인천</li>
             <li class="lo_li" onclick="getTheater_list('강원')">강원</li>
-            <li class="lo_li" onclick="getTheater_list('대전/충청')">대전/충청</li>
-            <li class="lo_li" onclick="getTheater_list('광주/전라')">광주/전라</li>
-            <li class="lo_li" onclick="getTheater_list('대구/울산/부산')">대구/울산/부산</li>
+            <li class="lo_li" onclick="getTheater_list('대전|충청')">대전/충청</li>
+            <li class="lo_li" onclick="getTheater_list('광주|전라')">광주/전라</li>
+            <li class="lo_li" onclick="getTheater_list('대구|울산|부산')">대구/울산/부산</li>
             <li class="lo_li" onclick="getTheater_list('경상')">경상</li>
             <li class="lo_li" onclick="getTheater_list('제주')">제주</li>
          </ul>
