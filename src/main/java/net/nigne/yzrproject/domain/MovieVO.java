@@ -28,7 +28,7 @@ public class MovieVO {
 	int moviegoers_cnt;
 
 	@Column(name = "reservation_rate")
-	double reservation_rate;
+	float reservation_rate;
 
 	@Column(name = "story")
 	String story;
@@ -78,10 +78,10 @@ public class MovieVO {
 	public void setMoviegoers_cnt(int moviegoers_cnt) {
 		this.moviegoers_cnt = moviegoers_cnt;
 	}
-	public double getReservation_rate() {
+	public float getReservation_rate() {
 		return reservation_rate;
 	}
-	public void setReservation_rate(double reservation_rate) {
+	public void setReservation_rate(float reservation_rate) {
 		this.reservation_rate = reservation_rate;
 	}
 	public String getStory() {
