@@ -16,6 +16,7 @@
 							<a href="/support/notice/read/${ event_list.no }">
 								<img src="/resources/images/notice/${event_list.notice_image}" style="width:250px; height:280px;"/>
 							</a>
+							
 						</div>
 					</c:when>
 					<c:when test="${i.index>6 && i.index<=10}">

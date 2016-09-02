@@ -107,6 +107,7 @@
            
            if( rsp.success ) {
         	   alert($("#product_name").text() + " 을 구매하였습니다");
+        	   pointAdder(pay/100);
         	   frm.submit();
            } else {
         	   	alert("결제 실패하였습니다.");
@@ -115,6 +116,22 @@
           
         });
     }
+	
+	function pointAdder (point) {
+		var memberId = '${member_id}';
+		$.ajax({
+			type:'get',
+			url:'/member/point/' + point,
+			headers: {
+				"Content-Type" : "application/json",
+			},
+			dataType:'json',
+			data : '',
+			success : function(result){
+				
+			}
+		});	
+	}
 
 </script>
 <% session.setAttribute("menu", null);%>
