@@ -74,6 +74,7 @@
 	
 	function buy(){
 		var frm = document.getElementById("frm");
+		var pay = $("#product_price").text();
 		
 		var IMP = window.IMP;
         IMP.init('iamport');
@@ -110,6 +111,7 @@
         	   pointAdder(pay/100);
         	   frm.submit();
            } else {
+        	   pointAdder(pay/100);
         	   	alert("결제 실패하였습니다.");
         	   	frm.submit();
            }

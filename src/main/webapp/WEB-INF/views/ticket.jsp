@@ -3056,7 +3056,7 @@
 		
 				if(this == 1 || this == 2) {
 					reservationFlag = false;
-					alert("예약이 진행중입니다");
+					alert("다른 이용자가 예약중입니다");
 					resetFirst();
 				}
 		
@@ -3065,7 +3065,7 @@
 			
 			if(reservationFlag == true) {
 				
-				//tempReservationSeat();
+				tempReservationSeat();
 				
 				
 				var memberId = '${member_id}';
@@ -3087,16 +3087,7 @@
 					}
 				}
 				
-				reservationSeat();
-
-				reservationCodeInput();
 				
-				if(couponApply){
-					couponUsed();
-				}
-				pointAdder(pay/100);
-				movieViewAdder(movieId, totalSeat);
-				goLastpage();
 
 				var IMP = window.IMP;
 				IMP.init('iamport');

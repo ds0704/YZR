@@ -208,7 +208,9 @@ public class YzrController {
                }
             }
             
-            String actor = "";
+            String a = "";
+            List<String> actor = null;
+            List<String> actor2 = null;
             
             if(an == null){
             	rec_actor_movie = movie_service.basicMovie().get(1);
@@ -216,7 +218,16 @@ public class YzrController {
             }else{
 	            rec_actor_movie = movie_service.getMovie(an);
 	            actor = actor_service.getMovie_actor(member_id);
-	            rec_title.add("배우&nbsp<&nbsp" + actor + "&nbsp>");
+	            actor2 = actor_service.getActor(rec_actor_movie.getMovie_id());
+	            System.out.println(actor);
+	            System.out.println(actor2);
+	            line : for(int i=0; i<actor.size(); i++){
+	            	if(actor2.contains(actor.get(i))){
+	            		a = actor.get(i);
+	            		break line;
+	            	}
+	            }
+	            rec_title.add("배우&nbsp<&nbsp" + a + "&nbsp>");
             }
             
             // movie_id 배열에 추천감독영화 movie_id가 있는지 확인
