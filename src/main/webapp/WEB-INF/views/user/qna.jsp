@@ -24,7 +24,7 @@
 			<tr style="background-color: red; color: white;">
 				<th style="text-align: center; width: 10%">번호</th>
 				<th style="text-align: center;width: 10%">문의유형</th>
-				<th width="60%" style="text-align: center;">문의 내용</th>
+				<th width="60%" style="text-align: center;">제 목</th>
 			</tr>
 			<tbody id="qna_table">
 			</tbody>

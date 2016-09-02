@@ -7,6 +7,7 @@ import net.nigne.yzrproject.domain.DirectorVO;
 import net.nigne.yzrproject.domain.GenreVO;
 import net.nigne.yzrproject.domain.GpaVO;
 import net.nigne.yzrproject.domain.MovieVO;
+import net.nigne.yzrproject.domain.ReservationVO;
 
 public interface MovieService {
 	public MovieVO getMovie(String movie_id);
@@ -25,4 +26,9 @@ public interface MovieService {
 	public List<GenreVO> getGenre(String movie_id);
 	public List<MovieVO> getMovieList(String order);
 	public List<MovieVO> getMovieId(String movieName);
+	public void addViewer(String movieId, int viewer);
+	public void updateReservationRate(MovieVO vo, float reservationRate);
+	public long getMovieCnt();
+	public List<MovieVO> getPlayMovieList();
+
 }

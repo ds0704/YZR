@@ -195,7 +195,7 @@ public class UserQuestionController {
 		}
 		return entity;
 	}
-	@RequestMapping(value = "/user/lost/rent/{no}", method = RequestMethod.GET)
+	@RequestMapping(value = "/user/rent/read/{no}", method = RequestMethod.GET)
 	public String rent_read(Locale locale, Model model, @PathVariable("no") int no,HttpServletRequest request) throws Exception {
 		HttpSession session=request.getSession();
 		String member_id=(String)session.getAttribute("member_id");

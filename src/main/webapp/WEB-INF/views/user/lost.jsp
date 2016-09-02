@@ -58,10 +58,10 @@
 					<div style="inline-block; height: 50px;float: left; margin-top:15px; margin-left: 10px;">
 						<font size="4px;">
 							<b>고객의 말씀 </b>
-							<button class="btn btn-danger btn-xs" style="margin-bottom: 5px;"onclick="lost()">바로가기</button><br/>
+							<button class="btn btn-danger btn-xs" style="margin-bottom: 5px;"onclick="qna()">바로가기</button><br/>
 						</font>
 						<font size="3px;">
-							불편사항과 문의사항을 남겨주시면 <br/>친절히답변드리겠습니다. 
+							불만사항이나 문의사항을 남겨주시면 <br/>친절히답변드리겠습니다. 
 						</font> 
 					</div>
 				</td>
@@ -73,23 +73,29 @@
 function faq(){
 	location.href="/support/faq";
 }
-function lost(){
-	location.href = "/support/lost";
+function qna(){
+	location.href = "/support/qna";
 }
 function lost_read(no){
 	location.href = "/user/lost/read/" + no;
 }
+
 getLostList(1);
 function setLostList(data){
 	var result = "<tr>";
 		if(data.length >0){
 			$(data).each(function(){
+				var s = this.lost_content;
 				result += "<td style='text-align: center;'>" 
 				+this.no
 				+"</td>"
-				+"<td>"
-				+"<a href='javascript:lost_read("+this.no+")'style='text-decoration:none;'>"+this.lost_content+"</a>"
-				+"</td>"
+				+"<td>";
+				if(this.lost_content.length<20){
+					result+="<a href='javascript:lost_read("+this.no+")'style='text-decoration:none;'>"+this.lost_content+"</a>"
+				}else{
+					result+="<a href='javascript:lost_read("+this.no+")'style='text-decoration:none;'>"+this.lost_content.substring(1,20)+"........</a>"
+				}
+				result+="</td>"
 				+"<td  style='text-align: center;'>"
 				+this.lost_date
 				+"</td>"

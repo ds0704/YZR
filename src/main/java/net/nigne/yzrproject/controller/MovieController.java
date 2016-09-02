@@ -2,6 +2,7 @@ package net.nigne.yzrproject.controller;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.UsesSunHttpServer;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +25,7 @@ import net.nigne.yzrproject.domain.DirectorVO;
 import net.nigne.yzrproject.domain.GenreVO;
 import net.nigne.yzrproject.domain.GpaVO;
 import net.nigne.yzrproject.domain.MovieVO;
+import net.nigne.yzrproject.domain.ReservationVO;
 import net.nigne.yzrproject.domain.ReviewVO;
 import net.nigne.yzrproject.service.MovieService;
 import net.nigne.yzrproject.service.ReviewService;
@@ -82,6 +85,7 @@ public class MovieController {
 
 	@RequestMapping(value = "/movie/{movie_id}", method = RequestMethod.GET)
 	public String home(Locale locale, Model model, @PathVariable("movie_id") String movie_id) throws Exception {
+		
 		MovieVO movievo = movie_service.getList(movie_id);
 		model.addAttribute("movievo", movievo);
 		List<ActorVO> actorlist = movie_service.getActor(movie_id);
@@ -92,7 +96,7 @@ public class MovieController {
 		model.addAttribute("genrelist", genrelist);
 		GpaVO gpavo = movie_service.getGpa(movie_id);
 		model.addAttribute("gpavo", gpavo);
-		
+
 		List<ReviewVO> reviewlist = Review_service.getReview(movie_id);
 		model.addAttribute("reviewlist", reviewlist);
 		return "movie_detail";
@@ -126,6 +130,43 @@ public class MovieController {
 		return entity;
 	}
 	
-	
+	@RequestMapping(value = "/movie/viewAdder/{movieId}/{seatCnt}", method = RequestMethod.GET)
+	public ResponseEntity<Map<String, Object>> viewer(@PathVariable("movieId") String movieId,
+													 @PathVariable("seatCnt") int seatCnt
+			) {
+		ResponseEntity<Map<String, Object>> entity = null;
+		
+		try{
+			System.out.println("11111");
+			int viewer = movie_service.getList(movieId).getReservation_cnt();
+			int totalViewer = 0;
+			float avrReservation = 0;
+			System.out.println(viewer);
+			System.out.println(seatCnt);
+			viewer += seatCnt;
+			System.out.println(viewer);
+			//브라우저로 전송한다
+			movie_service.addViewer(movieId, viewer);
+			int movieCnt = (int)movie_service.getMovieCnt();
+			
+			for(int i = 0; i < movieCnt; i++) {
+				totalViewer += movie_service.getPlayMovieList().get(i).getReservation_cnt();
+			}
+			
+			System.out.println("총 관객수 = " + totalViewer);
+			
+			for(int i = 0; i < movieCnt; i++) {
+				avrReservation = (float)(movie_service.getPlayMovieList().get(i).getReservation_cnt() / (float)totalViewer) * 100;
+				movie_service.updateReservationRate(movie_service.getPlayMovieList().get(i), avrReservation);
+			}
+			
+			entity = new ResponseEntity<>(HttpStatus.OK);
+			
+		} catch(Exception e){
+			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		
+		return entity;
+	}
 	
 }

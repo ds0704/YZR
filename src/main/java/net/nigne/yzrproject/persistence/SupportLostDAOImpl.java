@@ -55,6 +55,7 @@ public class SupportLostDAOImpl implements SupportLostDAO {
 		CriteriaQuery<String> cq=cb.createQuery(String.class);
 		Root<TheaterVO> root = cq.from(TheaterVO.class);
 		cq.select(root.get("theater_area")).distinct(true);
+		cq.orderBy(cb.asc(root.get("theater_area")));
 		TypedQuery<String> tq = entityManager.createQuery(cq);
 		list=tq.getResultList();
 		

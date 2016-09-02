@@ -41,6 +41,7 @@ public class ReservationVO {
 	
 	@Column(name="reservation_date")
 	String reservation_date;
+	
 
 	public String getReservation_code() {
 		return reservation_code;

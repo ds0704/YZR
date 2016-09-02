@@ -1,5 +1,6 @@
 package net.nigne.yzrproject.service;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import net.nigne.yzrproject.domain.DirectorVO;
 import net.nigne.yzrproject.domain.GenreVO;
 import net.nigne.yzrproject.domain.GpaVO;
 import net.nigne.yzrproject.domain.MovieVO;
+import net.nigne.yzrproject.domain.ReservationVO;
 import net.nigne.yzrproject.persistence.MovieDAO;
 
 @Service
@@ -114,6 +116,39 @@ public class MovieServiceImpl implements MovieService {
 	public List<MovieVO> getMovieId(String movieName) {
 		// TODO Auto-generated method stub
 		return dao.getMovieId(movieName);
+	}
+
+	@Transactional(rollbackFor = { Exception.class })
+	@Override
+	public void addViewer(String movieId, int viewer) {
+		// TODO Auto-generated method stub
+		dao.addViewer(movieId, viewer);
+	}
+
+	@Override
+	public long getMovieCnt() {
+		// TODO Auto-generated method stub
+		return dao.getMovieCnt();
+	}
+
+	@Override
+	public List<MovieVO> getPlayMovieList() {
+		// TODO Auto-generated method stub
+		return dao.getPlayMovieList();
+	}
+
+	@Transactional(rollbackFor = { Exception.class })
+	@Override
+	public void updateReservationRate(MovieVO vo, float reservationRate) {
+		// TODO Auto-generated method stub
+		float transformRate = digitNumber(reservationRate);
+		dao.updateReservationRate(vo, transformRate);
+	}
+	
+	private float digitNumber(float reservationRate) {
+		DecimalFormat form = new DecimalFormat("#.#");
+		float transformRate = Float.parseFloat(form.format(reservationRate));
+		return transformRate;
 	}
 
 }
